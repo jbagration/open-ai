@@ -1,19 +1,152 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: #9B9999;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #5A5A5A;
 }
 
 body {
   background: #E7E7E7;
+
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+  
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
 }
 
+/***********************header***************/
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logo img {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.logo p{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+.main-container{
+  padding: 10px 15px;
+}
+
+.main-menu{
+  display: flex;
+  justify-content: center;
+  margin-top: 57px;
+}
+
+#profile-pic{
+  cursor: pointer;
+  position: relative;
+}
+
+/*************************menu*********************/
+
+/*menu*/
+#popup-window {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: calc(50% - 400px); /* added */
+  max-width: 860px;
+  width: 262px;
+  height: 158px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  z-index: 1;
+  padding-left: 14px;
+}
+
+.name{
+  width: 251px;
+  height: 29px;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #5A5A5A;
+}
+
+.email{
+  width: 230px;
+  height: 22px;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  color: #9B9999;
+}
+
+.popup-item {
+  width: 230px;
+  height: 22px;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  color: #5A5A5A;
+}
+
+.subscription{
+  margin-top: 12px;
+  margin-bottom: 15px;
+}
+
+.exit{
+  cursor: pointer;
+}
+
+.popup-item button{
+  width: 89px;
+  height: 22px;
+  background: #DFDFDF;
+  border-radius: 10px;
+  border: none;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.popup-item button p{
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+
+
+/****************************app*********************/
 #app {
-  width: 100vw;
-  height: 100vh;
+  height: 394px;
   background: #E7E7E7;
 
   display: flex;
@@ -40,9 +173,7 @@ body {
 }
 
 /* hides scrollbar */
-#chat_container::-webkit-scrollbar {
-  display: none;
-}
+
 
 .wrapper {
   width: 100%;
@@ -54,7 +185,7 @@ body {
 }
 
 .chat {
-  width: 100%;
+  width: 90%;
   max-width: 860px;
   margin: 0 auto;
 
@@ -90,7 +221,8 @@ body {
   flex: 1;
 
   color: #000;
-  font-size: 20px;
+  font-size: 14px;
+  line-height: 17px;
 
   max-width: 100%;
   overflow-x: scroll;
@@ -117,9 +249,11 @@ form {
   max-width: 724px;
   margin: 0 auto;
   padding: 10px;
+
   background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -129,13 +263,15 @@ textarea {
   width: 100%;
 
   color: #000;
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 17px;
 
   padding: 10px;
   background: transparent;
   border-radius: 5px;
   border: none;
   outline: none;
+  resize: none;
 }
 
 button {
@@ -143,9 +279,11 @@ button {
   border: 0;
   cursor: pointer;
   background: transparent;
-}
 
-form img {
-  width: 30px;
-  height: 30px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #5A5A5A;
 }
