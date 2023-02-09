@@ -4,28 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codex - Your AI</title>
+    <title>Chat GPT</title>
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 <header>
     <div class="header main-container">
       <div class="logo">
-        <img src="assets/logo-main.svg" alt="logo">
+        <img src="assets/svg/logo-main.svg" alt="logo">
       <p>ChatGPT в России</p> 
       </div>
-          <img src="assets/profile.svg" alt="profile-picture" id="profile-pic">
+          <img src="assets/svg/profile.svg" alt="profile-picture" id="profile-pic">
       
       <div id="popup-window" class="popup-window">
           <div class="popup-window-content">
             <p class="name">Name</p>
             <p class="email">Email</p>
-            <p class="popup-item subscription">Подписка <button id="subscription-button"><p>Оформить</p></button></p>
+            <p class="popup-item subscription">Подписка <button id="subscription-button">Оформить</button></p>
             <p class="popup-item error">Сообщить об ошибке</p>
 
           <a class="popup-item exit" href="authorization.html">Выход</a>
           </div>
       </div>
+
+      
     </header>
 
 <main>
@@ -33,7 +36,7 @@
       <div id="chat_container"></div>
 
       <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Ask codex..."></textarea>
+        <textarea name="prompt" rows="1" cols="1" placeholder="Спросите бота..."></textarea>
         <button type="submit">Отправить</button>
       </form>
       
