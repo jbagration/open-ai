@@ -138,8 +138,9 @@ const increaseButton = document.querySelector(".increase-button");
 const duration = document.getElementById("duration");
 const price = document.getElementById("price");
 
-increaseButton.addEventListener("click", function(e) {
-  e.preventDefault();
+increaseButton.addEventListener("click", function(crease) {
+
+  crease.preventDefault();
   if (duration.textContent === "1 месяц") {
     duration.textContent = "3 месяца";
     price.textContent = "2840 руб.";
@@ -149,8 +150,8 @@ increaseButton.addEventListener("click", function(e) {
   }
 });
 
-decreaseButton.addEventListener("click", function(e) {
-  e.preventDefault();
+decreaseButton.addEventListener("click", function(crease) {
+  crease.preventDefault();
   if (duration.textContent === "12 месяцев") {
     duration.textContent = "3 месяца";
     price.textContent = "2840 руб.";
@@ -161,17 +162,23 @@ decreaseButton.addEventListener("click", function(e) {
 });
 
 //input
-const textareaInput1 = document.querySelector('.textarea-input');
-const messageContainer = document.querySelector('.message');
+const chatTextArea = document.querySelector('#chat-textarea');
+const chatForm = document.querySelector('#chat-form');
+const chatButton = document.querySelector('#chat-button');
 
-textareaInput1.addEventListener('input', function() {
-  messageContainer.style.height = 'auto';
-  textareaInput1.style.height = '1px';
-  textareaInput1.style.height = `${textareaInput1.scrollHeight}px`;
+chatTextArea.addEventListener('input', function() {
+  chatForm.style.height = 'auto';
+  chatTextArea.style.height = `${chatTextArea.scrollHeight}px`;
+ 
+  if (chatTextArea.scrollHeight > 24){
+    chatButton.style.height = '37px';
+  }
 
-  if (textareaInput1.scrollHeight > 146) {
-    messageContainer.style.overflowY = 'scroll';
+  if (chatTextArea.scrollHeight > 146) {
+    chatForm.style.overflowY = 'scroll';
+    chatForm.style.height = '146px';
+
   } else {
-    messageContainer.style.overflowY = 'hidden';
+    chatForm.style.overflowY = 'hidden';
   }
 });

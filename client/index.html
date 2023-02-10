@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Chat GPT</title>
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-<header>
-    <div class="header main-container">
-      <div class="logo">
-        <img src="assets/svg/logo-main.svg" alt="logo">
-      <p>ChatGPT в России</p> 
-      </div>
-          <img src="assets/svg/profile.svg" alt="profile-picture" id="profile-pic">
-      
-      <div id="popup-window" class="popup-window">
-          <div class="popup-window-content">
-            <p class="name">Name</p>
-            <p class="email">Email</p>
-            <p class="popup-item subscription">Подписка <button id="subscription-button">Оформить</button></p>
-            <p class="popup-item error">Сообщить об ошибке</p>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header main-container">
+            <div class="logo">
+              <img src="assets/svg/logo-main.svg" alt="logo">
+            <p>ChatGPT в России</p> 
+            </div>
+                <img src="assets/svg/profile.svg" alt="profile-picture" id="profile-pic">
+            
+            <div id="popup-window" class="popup-window">
+                <div class="popup-window-content">
+                  <p class="name">Name</p>
+                  <p class="email">Email</p>
+                  <p class="popup-item subscription">Подписка <button id="subscription-button">Оформить</button></p>
+                  <p class="popup-item error">Сообщить об ошибке</p>
 
-          <a class="popup-item exit" href="authorization.html">Выход</a>
-          </div>
-      </div>
+                <a class="popup-item exit" href="authorization.html">Выход</a>
+                </div>
+            </div>
 
-      
-    </header>
+
+            <div class="modal" id="subscription-modal">
+              <div class="modal-content" style="width: 436px; height: 265px;">
+                <form class="main-form">
+                  <p>Оформление или продление подписки</p>
+                  <img src="assets/svg/logo-main.svg" alt="logo">
+
+                  <div style="margin-top: 16px; display: flex;">
+                    <button class="switch-button decrease-button">-</button>
+                    <div style="display: flex; flex-direction: column;">
+                      <p id="duration" style="margin: 0 16px;">1 месяц</p>
+                      <p id="price" style="margin: 0 16px;">980 руб.</p>
+                    </div>
+                    <button class="switch-button increase-button">+</button>
+                  </div>
+                  
+                  <div style="margin-top: 16px;">
+                    <button class="additional-button">Отправить</button>
+                    <button class="additional-button close">Отмена</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+                
+            <div class="modal" id="error-modal">
+              <div class="modal-content" style="width: 436px; height: 265px;">
+
+                <form class="main-form">
+                  <p>Сообщить об ошибке</p>
+                  <textarea id="error-text" style="width: 360px; height: 131px;" placeholder="Я обнаружил ошибку..."></textarea>
+                  <div style="margin-top: 16px;">
+                    <button class="error-button" >Отправить</button>
+                    <button class="error-button close">Отмена</button>
+                  </div>
+                </form>
+                
+            </div>
+        </div>
+    </header> 
 
 <main>
     <div id="app">
       <div id="chat_container"></div>
 
-      <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Спросите бота..."></textarea>
-        <button type="submit">Отправить</button>
+      <form id="chat-form">
+        <textarea id="chat-textarea" name="prompt" rows="1" cols="1" placeholder="Спросите бота..."></textarea>
+        <button id="chat-button" type="submit">Отправить</button>
       </form>
       
     </div>
   </main>
     <script type="module" src="script.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

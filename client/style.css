@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-* {
-  box-sizing: border-box;
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -11,26 +13,180 @@
 }
 
 ::-webkit-scrollbar-thumb{
+  width: 5px;
   background: #5A5A5A;
+  border-radius: 10px;
 }
 
-body {
-  background: #E7E7E7;
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0;
-  
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
+li{
+    padding-left: 0;
+}
 
+p{
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    max-width: 860px;    
+    margin: 0 auto;
+    background: #E7E7E7;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+    max-height: 540px;
+}
+
+.container{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 a {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.button{
+    background: #ADC6AC;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.first-text{
+    font-size: 50px;
+    font-weight: inherit;
+    line-height: 61px;
+    margin: 0px;
+}
+
+.first-button{
+    width: 458px;
+    height: 80px;
+    padding: 15px 32px;
+}
+
+
+/*page 2*/
+h2{
+    height: 39px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+form p {
+    position: relative;
+    margin-top: 16px;
+}
+
+form label{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-size: 17px;
+    color: #9B9999;
+}
+
+form input {
+    width: 365px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #9B9999;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+#submitBtn{
+    margin-top: 17px;
+    background: #ADC6AC;
+    font-family: 'Inter';
+    font-size: 17px;
+    line-height: 21px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+
+h5{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #5A5A5A;
+}
+
+h5 a{
+    color:  #000000; 
+    font-weight: 500;
+}
+
+/*page 4*/
+.verification {
+    width: 365px;
+    height: 93px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    align-items: center;
+    text-align: center;
+    
+    color: #5A5A5A;
+}
+
+.verification span{
+    color: #000000;
+}
+
+.confirmation{
+    margin-top: 52px;
+    font-size: 13px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    color: #ADC6AC;
+    cursor: pointer;
+}
+
+.authorization{
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #5A5A5A;
+}
+
+.authorization a{
+    color: #000;
+    cursor: pointer;
+    font-weight: 500;
 }
 
 /***********************header***************/
@@ -79,7 +235,7 @@ a {
 #popup-window {
   display: none;
   position: absolute;
-  top: 47px;
+  top: 40px;
   right: calc(50% - 400px); /* added */
   width: 262px;
   height: 158px;
@@ -91,6 +247,7 @@ a {
 
 .popup-window-content{
   margin-left: 14px;
+  margin-top: 15px;
 }
 
 .name{
@@ -125,8 +282,13 @@ a {
   margin-bottom: 15px;
 }
 
+#subscription-button{
+  color: #000;
+}
+
 .exit{
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .popup-item button{
@@ -145,7 +307,129 @@ a {
   line-height: 15px;
 }
 
-/**********************************************************/
+/*****************************modal*****************************/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.61);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15% auto;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.main-form p{
+  height: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.main-form textarea{
+  background: #FFFFFF;
+  border: 1px solid #DFDFDF;
+  border-radius: 10px;
+  resize: none;
+  background: none;
+  outline: none!important;
+} 
+
+.error{
+  cursor: pointer;
+}
+
+#error-text{
+  padding: 10px 14px;
+  width: 342px;
+  height: 31px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.error-button{
+  background: #F8F7F7;
+  color: #000;
+  font-weight: 400;
+  border-radius: 10px;
+  border: none;
+  width: 97px;
+  height: 34px;
+  font-size: 15px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.error-button:hover{
+  background: #DFDFDF;
+}
+
+
+
+/*subscr*/
+#duration{
+  height: 44px;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 23px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+}
+
+#price{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.switch-button{
+  font-size: 19px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  cursor: pointer;
+  height: 44px;
+}
+
+.additional-button{
+  background: #F8F7F7;
+  border-radius: 10px;
+  border: none;
+  width: 97px;
+  height: 34px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #000;
+}
+
+.additional-button:hover{
+  background: #DFDFDF;
+}
+
 
 
 /****************************app*********************/
@@ -177,7 +461,9 @@ a {
 }
 
 /* hides scrollbar */
-
+#chat_container::-webkit-scrollbar {
+  display: none;
+}
 
 .wrapper {
   width: 100%;
@@ -230,6 +516,7 @@ a {
 
   max-width: 100%;
   overflow-x: scroll;
+  
 
   /*
    * white space refers to any spaces, tabs, or newline characters that are used to format the CSS code
@@ -247,8 +534,11 @@ a {
 .message::-webkit-scrollbar {
   display: none;
 }
+#chat-form::-webkit-scrollbar {
+  display: none;
+}
 
-form {
+#chat-form {
   width: 100%;
   max-width: 724px;
   margin: 0 auto;
@@ -261,6 +551,7 @@ form {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  height: 57px; 
 }
 
 textarea {
@@ -290,4 +581,8 @@ button {
   line-height: 16px;
 
   color: #5A5A5A;
+
+  position: sticky;
+  top: 95px;
+  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import bot from './assets/svg/bot.svg'
 import user from './assets/svg/user.svg'
 
-const form = document.querySelector('form')
+const form = document.querySelector('#chat-form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
