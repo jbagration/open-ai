@@ -13,19 +13,19 @@
 <body>
         <div class="container">
 
-        <img src="/logo.svg" alt="logo">
+        <img src="./assets/svg/logo.svg" alt="logo">
 
         <h2>Регистрация</h2>
 
         <form action="#main">
-            <p>
-              <input type="email" id="email" name="email" required onfocus="hideLabel(this)" onblur="showLabel(this)" oninput="enableSubmitBtn()">
-              <label for="email" id="emailLabel">Email</label>
-            </p>
-            <p>
-              <input type="password" id="password" name="password" required onfocus="hideLabel(this)" onblur="showLabel(this)" oninput="enableSubmitBtn()">
-              <label for="password" id="passwordLabel">Пароль</label>
-            </p>
+          <p>
+            <input type="email" id="email" name="email" placeholder="Email">
+            <label for="email" id="emailLabel"></label>
+          </p>
+          <p>
+            <input type="password" id="password" name="password" placeholder="Пароль">
+            <label for="password" id="passwordLabel"></label>
+          </p>
             <p>
               <input type="submit" value="Продолжить" id="submitBtn" disabled>
             </p>

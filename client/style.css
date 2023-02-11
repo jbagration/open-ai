@@ -118,6 +118,12 @@ form input {
     border: 1px solid #9B9999;
     border-radius: 10px;
     padding-left: 15px;
+    outline: none;
+
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    color: #9B9999;
 }
 
 #submitBtn{
