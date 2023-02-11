@@ -3,6 +3,22 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 
+import mongoose from 'mongoose'
+
+import { registerValidation } from './validations/auth.js'
+
+import checkAuth from './middleware/checkAuth.js'
+
+import * as UserController from './controllers/UserController.js'
+
+//mongodb
+mongoose.set('strictQuery', true);
+mongoose.connect(
+  'mongodb+srv://admin:5316166@cluster0.trlviam.mongodb.net/chat')
+  .then(() => console.log('DB ok'))
+  .catch((err) => console.log('DB error', err));
+
+//server
 dotenv.config();
 
 const configuration = new Configuration({
@@ -47,3 +63,10 @@ app.post('/', async (req, res) => {
 
 app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
 
+//token
+app.use(express.json());
+
+app.post('/auth/login', UserController.login);
+app.post('/auth/register', registerValidation, UserController.register);
+// why 404??
+app.get('/auth/me', checkAuth, UserController.getMe);

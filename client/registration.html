@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+    <title>Chat GPT</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+        <div class="container">
+
+        <img src="/logo.svg" alt="logo">
+
+        <h2>Регистрация</h2>
+
+        <form action="#main">
+            <p>
+              <input type="email" id="email" name="email" required onfocus="hideLabel(this)" onblur="showLabel(this)" oninput="enableSubmitBtn()">
+              <label for="email" id="emailLabel">Email</label>
+            </p>
+            <p>
+              <input type="password" id="password" name="password" required onfocus="hideLabel(this)" onblur="showLabel(this)" oninput="enableSubmitBtn()">
+              <label for="password" id="passwordLabel">Пароль</label>
+            </p>
+            <p>
+              <input type="submit" value="Продолжить" id="submitBtn" disabled>
+            </p>
+          </form>
+
+        <h5>Уже есть аккаунт? <a href="authorization.html">Войдите</a></h5>
+
+        <div class="g-signin2" data-onsuccess="onSignIn" 
+        -theme="light" data-width="365" data-height="38"></div>
+    </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="/main.js"></script>
+</body>
+</html>
