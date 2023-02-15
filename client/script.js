@@ -243,19 +243,19 @@ form.addEventListener('keyup', (e) => {
   const chatButton = document.querySelector('#chat-button');
   
   chatTextArea.addEventListener('input', function() {
-  chatForm.style.height = 'auto';
-  chatTextArea.style.height = `${chatTextArea.scrollHeight}px`;
+    chatForm.style.height = 'auto';
+    chatTextArea.style.height = `${chatTextArea.height}px`;
   
-  if (chatTextArea.scrollHeight > 24){
-    chatButton.style.height = '37px';
-  }
+
   
-  if (chatTextArea.scrollHeight > 146) {
-    chatForm.style.overflowY = 'scroll';
-    chatForm.style.height = '146px';
+    if (chatTextArea.scrollHeight > 146) {
+      chatForm.style.overflow = 'scroll';
+      chatForm.style.height = '146px';
+    } else {
+      chatForm.style.overflow = 'hidden';
+    }
   
-  } else {
-    chatForm.style.overflowY = 'hidden';
-  }
+
   });
   
+
